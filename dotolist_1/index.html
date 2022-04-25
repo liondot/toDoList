@@ -6,9 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>toDoList 1</title>
   <link rel="stylesheet" href="style.css">
-  <script src="main.js" defer></script>
 </head>
 <body>
-  
+  <div class="container">
+    <h4>Todo List</h4>
+    <section class="input_area">
+      <input id="task_input" type="text">
+      <button id="add_button">+</button>
+    </section>
+    <section class="task_area">
+      <div class="task_tabs">
+        <div id="under_line"></div>
+        <div>모두</div>
+        <div>진행중</div>
+        <div>완성</div>
+      </div>
+      <div class="task">
+        <div>집가기</div>
+        <div>
+          <button>check</button>
+          <button>Delete</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+<script type='text/javascript' src="main.js"></script>
 </body>
 </html>
