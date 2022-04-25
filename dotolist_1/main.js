@@ -25,19 +25,31 @@ function addTask() {
   }
   taskList.push(task);
   console.log(taskList);
-  rander()
+  render()
 }
 
-function rander() {
+function render() {
   let resultHTML = '';
   for (let i = 0; i < taskList.length; i++) {
-    resultHTML += `<div class="task">
-    <div>${taskList[i].taskContent}</div>
-    <div>
-      <button onclick="toggleComplete('${taskList[i].id}')">check</button>
-      <button>Delete</button>
-    </div>
-  </div>`;
+
+    if(taskList[i].isComplete == true) {
+      resultHTML += `<div class="task">
+      <div class="task-done">${taskList[i].taskContent}</div>
+      <div>
+        <button onclick="toggleComplete('${taskList[i].id}')">check</button>
+        <button onclick="deleteTask()">Delete</button>
+      </div>
+    </div>`
+    } else {
+      resultHTML += `<div class="task">
+      <div>${taskList[i].taskContent}</div>
+      <div>
+        <button onclick="toggleComplete('${taskList[i].id}')"><i class="fa-solid fa-check"></i></button>
+        <button onclick="deleteTask()">Delete</button>
+      </div>
+    </div>`;
+    }
+
   }
   document.getElementById("task_board").innerHTML = resultHTML;
 }
@@ -46,13 +58,19 @@ function rander() {
 function toggleComplete(id) {
   for (let i = 0; i < taskList.length; i++) {
     if (taskList[i].id == id) {
-      taskList[i].isComplete = true
+      taskList[i].isComplete = !taskList[i].isComplete;
       break;
     }
   }
-  console.log(taskList)
+  render();
+  console.log(taskList);
+}
+
+function deleteTask(){
+  
 }
 
 function randomIDGenerate() {
   return '_' + Math.random().toString(36).substr(2, 9);
 }
+
