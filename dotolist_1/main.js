@@ -9,9 +9,31 @@
 
 let taskInput = document.getElementById('task_input');
 let addBtn = document.getElementById('add_button');
+let task = document.querySelector('.task')
+let taskList = []
 
-addBtn.addEventListener("click", add);
+addBtn.addEventListener("click", addTask);
 
-function add() {
-  console.log("add")
+function addTask() {
+  let taskContent = taskInput.value;
+  taskList.push(taskContent);
+  console.log(taskList);
+  rander()
 }
+
+function rander() {
+  let resultHTML = '';
+  for(let i = 0; i < taskList.length; i++) {
+    resultHTML += `<div class="task">
+    <div>${taskList[i]}</div>
+    <div>
+      <button>check</button>
+      <button>Delete</button>
+    </div>
+  </div>`
+  }
+  document.getElementById("task_board").innerHTML = resultHTML;
+}
+
+
+
