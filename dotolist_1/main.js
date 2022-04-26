@@ -37,7 +37,7 @@ function render() {
       <div class="task-done">${taskList[i].taskContent}</div>
       <div>
         <button onclick="toggleComplete('${taskList[i].id}')">check</button>
-        <button onclick="deleteTask()">Delete</button>
+        <button onclick="deleteTask('${taskList[i].id}')">Delete</button>
       </div>
     </div>`
     } else {
@@ -45,7 +45,7 @@ function render() {
       <div>${taskList[i].taskContent}</div>
       <div>
         <button onclick="toggleComplete('${taskList[i].id}')"><i class="fa-solid fa-check"></i></button>
-        <button onclick="deleteTask()">Delete</button>
+        <button onclick="deleteTask('${taskList[i].id}')">Delete</button>
       </div>
     </div>`;
     }
@@ -66,9 +66,16 @@ function toggleComplete(id) {
   console.log(taskList);
 }
 
-function deleteTask(){
-  
+function deleteTask(id) {
+  for(let i = 0; i<taskList.length; i++) {
+    if(taskList[i].id == id) {
+      taskList.splice(i,1)
+      break;
+    }
+  }
+  render()
 }
+
 
 function randomIDGenerate() {
   return '_' + Math.random().toString(36).substr(2, 9);
