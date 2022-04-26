@@ -13,9 +13,16 @@
 let taskInput = document.getElementById('task_input');
 let addBtn = document.getElementById('add_button');
 let task = document.querySelector('.task')
+let tabs = document.querySelectorAll('.task_tabs div')
+let mode = ''
 let taskList = []
 
+
 addBtn.addEventListener("click", addTask);
+
+for(let i = 1; i< tabs.length; i++) {
+  tabs[i].addEventListener("click", function(event){filter(event)})
+}
 
 function addTask() {
   let task = {
@@ -76,6 +83,20 @@ function deleteTask(id) {
   render()
 }
 
+function filter(event) {
+  mode = event.target.id;
+  let filterList = []
+  if(mode == 'all') {
+    render()
+  } else if (mode == 'ongoing') {
+    for(let i = 0; i<taskList.length; i++) {
+      if(taskList[i].isComplete == false){
+        filterList.push(taskList[i])
+      }
+    }
+    render();
+  }
+}
 
 function randomIDGenerate() {
   return '_' + Math.random().toString(36).substr(2, 9);
