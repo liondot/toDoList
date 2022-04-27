@@ -49,6 +49,6 @@ body {
   left: 0;
 }
 
-.task_button {
-
+.task_done {
+  text-decoration: line-through;
 }
