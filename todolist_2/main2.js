@@ -23,7 +23,6 @@ function addTask() {
   render()
   console.log(taskList)
 }
-
 function render() {
   let resultHTML = ''
   for(let i = 0; i<taskList.length; i++) {
@@ -32,8 +31,8 @@ function render() {
     <div class="task_list">
       <div class="task_done">${taskList[i].taskContents}</div>
       <div>
-        <button onclick="toggleComplete('${taskList[i].id}')">check</button>
-        <button>delete</button>
+        <button onclick="toggleComplete('${taskList[i].id}')"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+        <button onclick="deleteTask('${taskList[i].id}')"><i class="fa-solid fa-trash-can"></i></button>
       </div>
     </div>
   </div>
@@ -43,8 +42,8 @@ function render() {
       <div class="task_list">
         <div>${taskList[i].taskContents}</div>
         <div>
-          <button onclick="toggleComplete('${taskList[i].id}')">check</button>
-          <button>delete</button>
+          <button onclick="toggleComplete('${taskList[i].id}')"><i class="fa-solid fa-check"></i></button>
+          <button onclick="deleteTask('${taskList[i].id}')"><i class="fa-solid fa-trash-can"></i></button>
         </div>
       </div>
     </div>
@@ -65,6 +64,16 @@ function toggleComplete(id) {
   }
   render()
   console.log(taskList)
+}
+
+function deleteTask(id) {
+  for(let i = 0; i<taskList.length; i++) {
+    if(taskList[i].id == id) {
+      taskList.splice(i,1)
+      break;
+    } 
+  }
+  render()
 }
 
 function radomIDgenerate(){
