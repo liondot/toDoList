@@ -9,11 +9,11 @@ body {
 
 .wrapper {
   width: 500px;
-  height: 500px;
   background: #fff;
   border-radius: 20px;
   border: 1px solid lightgray;
   text-align: center;
+  padding-bottom: 60px;
 }
 
 #input_area{
@@ -46,6 +46,7 @@ body {
   padding: 15px;
   position: relative;
   border-bottom: 1px solid gray;
+  cursor: pointer;
 }
 
 .task_tabs div {
@@ -70,4 +71,8 @@ body {
 
 .task > div {
   color: lightslategray;
+}
+
+.task_done {
+  text-decoration: line-through;
 }
