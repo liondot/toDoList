@@ -33,6 +33,7 @@ a {
   text-align: left;
   height: 100%;
   box-sizing: border-box;
+  position: relative;
 }
 
 .tabs a {
@@ -42,12 +43,23 @@ a {
   height: 100%;
 }
 
+.tabs:after {
+  content: '';
+  width: 60px;
+  height: 4px;
+  background: pink;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
 .task {
   display: flex;
   justify-content: space-between;
   padding: 20px;
   border-bottom: 1px solid lightgray;
 }
+
 
 .task_done {
   text-decoration: line-through;
