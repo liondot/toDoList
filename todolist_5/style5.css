@@ -1,0 +1,50 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background: skyblue;
+  margin: 0 auto;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+.wrapper {
+  width: 500px;
+  padding: 20px 0;
+  border: 1px solid lightslategray;
+  background: #fff;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.tabs {
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  margin-top: 20px;
+  padding: 10px;
+  text-align: left;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.tabs a {
+  padding: 10px;
+  box-sizing: border-box;
+  color: gray;
+  height: 100%;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid lightgray;
+}
