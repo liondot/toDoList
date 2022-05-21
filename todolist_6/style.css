@@ -42,3 +42,7 @@ body{
   justify-content: space-between;
   border-bottom: 1px solid gainsboro;
 }
+
+.task_done {
+  text-decoration: line-through;
+}
