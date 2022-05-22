@@ -23,6 +23,11 @@ body{
 
 .task_tabs div {
   padding: 1em;
+  cursor: pointer;
+}
+
+.task_tabs div.active {
+  color: skyblue
 }
 
 #under_line {
