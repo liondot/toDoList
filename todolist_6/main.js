@@ -13,7 +13,7 @@ let taskInput = document.getElementById("task_input");
 let addBtn = document.getElementById("add_btn")
 let taskList = []
 let tabs = document.querySelectorAll(".task_tabs div");
-let mode = ''
+let mode = 'all'
 let filterList = []
 
 addBtn.addEventListener("click", addTask);
@@ -32,7 +32,7 @@ function render() {
   let list = []
   if(mode == "all") {
     list = taskList
-  } else if ( mode == "ongoing"){
+  } else if ( mode == "ongoing" || mode == "done"){
     list = filterList
   }
   let resultHTML = ''
@@ -79,8 +79,16 @@ function filter(event) {
         filterList.push(taskList[i])
       }
     }
-    render()
   }
+  else if (mode == "done") {
+    for (let i = 0; i < taskList.length; i++) {
+      if (taskList[i].isComplete == true) {
+        filterList.push(taskList[i])
+      }
+    }
+  }
+  render()
+
 }
 
 
